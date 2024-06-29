@@ -42,6 +42,7 @@ public class Main {
 
             // Process the results
             while (resultSet.next()) {
+                // parse complete row (using the columnLabels - "id", "username", "currorg")
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("username");
                 String currOrg = resultSet.getString("currorg");
