@@ -48,6 +48,8 @@ public class Main {
 
                 System.out.println("ID: " + id + ", Name: " + name + ", Org: " + currOrg);
             }
+
+            connection.close();
         }
         catch (SQLException e){
             e.printStackTrace();
