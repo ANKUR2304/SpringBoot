@@ -8,30 +8,13 @@ public class Main {
         String username = "your_username"; // Database username
         String password = "your_password"; // Database password
 
-        //String insertSQL = "INSERT INTO test (id, username, currorg) VALUES (?, ?, ?)";
-
         Connection connection = null;
         try{
+            // Load and Register the Driver for your DB
             Class.forName("org.postgresql.Driver");
+            // Make the connection
             connection = DriverManager.getConnection(url, username, password);
-
             System.out.println("Connection Established!");
-
-            /*
-            // Create a prepared statement
-            PreparedStatement preparedStatement = connection.prepareStatement(insertSQL);
-
-            // Set the parameters
-            preparedStatement.setInt(1, 1); // ID
-            preparedStatement.setString(2, "user1"); // username
-            preparedStatement.setString(3, "org1"); // currOrg
-
-            // Execute the update
-            int rowsInserted = preparedStatement.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("A new user was inserted successfully!");
-            }
-            */
 
             // Create a simple statement
             Statement statement = connection.createStatement();
@@ -49,7 +32,7 @@ public class Main {
 
                 System.out.println("ID: " + id + ", Name: " + name + ", Org: " + currOrg);
             }
-
+            // Close the Connection
             connection.close();
         }
         catch (SQLException e){
